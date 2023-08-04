@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Update thought</title>
+</head>
+<body>
+    {{>navbar}}
+    <section class="updateThought-section">
+        <div class="small-container">
+            <form action="/dashboard/thought/update/{{thought.id}}?_method=PATCH" class="updateThought-form" method="POST">
+                <input type="text" name="title" id="" placeholder="Your Title" value="{{thought.title}}">
+                <textarea name="content" placeholder="Your Thought">{{thought.content}}</textarea>
+                <input type="submit" value="Update" class="primary-btn">
+            </form>
+        </div>
+    </section>
+</body>
+</html>

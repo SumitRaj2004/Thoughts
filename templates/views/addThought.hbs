@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Add thought</title>
+</head>
+<body>
+    {{>navbar}}
+    <section class="addThought-section">
+        <div class="small-container">
+            <form action="/dashboard/thought/add" class="addThought-form" method="POST">
+                <input type="text" name="title" id="" placeholder="Your Title" value="">
+                <textarea name="content" placeholder="Your Thought"></textarea>
+                <input type="submit" value="Add" class="primary-btn">
+            </form>
+        </div>
+    </section>
+</body>
+</html>

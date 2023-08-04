@@ -1,0 +1,440 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    --primary-color : #4EF29A;
+    --dark-color : #222222;
+    --light-dark-color : #333333;
+    --white-color : #fff;
+}
+
+body{
+    font-family: 'Urbanist', sans-serif;
+    letter-spacing: 1px;
+}
+
+.container{
+    max-width: 1280px;
+    width : 95%;
+    margin: 0 auto;
+}
+
+.small-container{
+    max-width: 768px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.primary-btn{
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.8rem 2.4rem;
+    color: var(--dark-color);
+    border-radius: 10rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    background: var(--primary-color);
+}
+
+.secondary-btn{
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.7rem 1.8rem;
+    color: var(--dark-color);
+    border-radius: 10rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    background: var(--white-color);
+}
+
+.tertiary-btn{
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.7rem 1.8rem;
+    color: var(--white-color);
+    border-radius: 10rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    background: var(--light-dark-color);
+}
+
+
+/* navbar start */
+.navbar{
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    background: var(--dark-color);
+}
+
+.navbar > .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-logo{
+    font-size: 3rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    text-transform: lowercase;
+    text-decoration: none;
+}
+
+
+.navbar-items{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
+
+.navbar-items .navbar-item a:link,
+.navbar-items .navbar-item a:visited{
+    text-transform: lowercase;
+    color: var(--white-color);
+    font-size: 1.7rem;
+    font-weight: 400;
+    /* letter-spacing: 1px; */
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.navbar-items .navbar-item a:hover,
+.navbar-items .navbar-item a:active{
+    color: var(--primary-color);
+}
+
+
+/* navbar section end */
+
+
+/* home-section start*/
+.home-section{
+    padding: 5rem 0;
+    background: var(--dark-color);
+    height: 85vh;
+}
+
+.home-section > .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.home-content{
+    margin-top: -10rem;
+    max-width: 73rem;
+    text-align: center;
+    /* border: 1px solid red; */
+}
+
+.home-content .home-title{
+    color: var(--white-color);
+    font-size: 7rem;
+    line-height: 1.1;
+    font-weight: 500;
+    letter-spacing: 0;
+}
+
+.home-content .home-title span{
+    color: var(--primary-color);
+}
+
+
+.home-btn{
+    margin-top: 3rem;
+    font-weight: 600;
+}
+
+/* home-section end */
+
+
+/* msg section start  */
+
+.msg-section{
+    height: 100vh;
+    padding: 5rem 0;
+    background-color: var(--dark-color);
+}
+
+.msg-section > .container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.msg-content{
+    margin-top: -5rem;
+    max-width: 100rem;
+    text-align: center;
+}
+
+.msg-content > h1{
+    font-size: 7rem;
+    line-height: 1.1;
+    color: var(--white-color);
+    font-weight: 600;
+}
+
+.msg-content > .msg-btn{
+    margin-top: 4rem;
+    font-weight: 500;
+    font-size: 2rem;
+    padding: 0.6rem 2.4rem;
+}
+
+.msg-content > .msg-btn.false{
+    display: none;
+}
+
+/* msg section end  */
+
+
+/* dashboard-section start  */
+.dashboard-section{
+    background: var(--dark-color);
+    padding: 5rem 0 7rem 0;
+    min-height: 85vh;
+}
+
+/* .dashboard-section > .container{
+} */
+
+.dashboard-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dashboard-top > h1{
+    color: var(--white-color);
+    font-size: 3rem;
+    font-weight: 500;
+    margin-left: 2rem;
+}
+
+.dashboard-top > h1 > span{
+    color: var(--primary-color);
+}
+
+/* .dashboard-top .dashboard-search{
+
+} */
+
+.dashboard-search input{
+    border: none;
+    outline: none;
+    font-family: inherit;
+    letter-spacing: inherit;
+    color: var(--white-color);
+    background: var(--light-dark-color);
+    padding: 0.6rem 2rem;
+    border-radius: 10rem;
+    font-weight: 500;
+    font-size: 1.7rem;
+}
+
+.dashboard-search input::placeholder{
+    color: var(--white-color);
+}
+
+
+.dashboard-bottom{
+    margin-top: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4rem;
+}
+.dashboard-bottom .thought{
+    border-bottom: 1px solid var(--light-dark-color);
+    padding: 0 2rem 2rem 2rem;
+}
+.thought > a{
+    font-size: 1.8rem;
+    color: var(--white-color);
+    font-weight: 400;
+    text-decoration: none;
+    text-transform: lowercase;
+    transition: all 0.2s ease;
+}
+
+.thought > a:hover{
+    color: var(--primary-color);
+}
+
+.dashboard-btns{
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.dashboard-btns a{
+    border-radius: 0.4rem;
+}
+
+/* dashboard-section end  */
+
+
+
+/* addThought-section start  */
+
+.addThought-section{
+    background: var(--dark-color);
+    padding: 5rem 0 7rem 0;
+    min-height: 85vh;
+}
+
+.addThought-form{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2rem;
+}
+
+.addThought-form input[type="text"],
+.addThought-form textarea{
+    border: none;
+    outline: none;
+    color: var(--white-color);
+    background: var(--light-dark-color);
+    font-size: 1.8rem;
+    font-weight: 400;
+    padding: 1rem 2rem;
+    border-radius: 0.4rem;
+    font-family: inherit;
+    letter-spacing: inherit;
+}
+
+.addThought-form textarea{
+    resize: none;
+    height: 30rem;
+    line-height: 1.8;
+}
+
+.addThought-form input::placeholder,
+.addThought-form textarea::placeholder{
+    color: var(--white-color);
+}
+
+.addThought-form input[type="submit"]{
+    border: none;
+    outline: none;
+    align-self: flex-end;
+    border-radius: 0.4rem;
+    font-family: inherit;
+    letter-spacing: inherit;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+
+/* addThought-section end  */
+
+
+/* thought-section start */
+
+.thought-section{
+    background: var(--dark-color);
+    padding: 5rem 0 7rem 0;
+    min-height: 85vh;
+}
+.thought-title{
+    color: var(--white-color);
+    font-size: 5rem;
+    line-height: 1.5;
+}
+
+.thought-content{
+    color: var(--white-color);
+    font-size: 1.8rem;
+    margin-top: 4rem;
+    line-height: 2.2;
+}
+
+.thought-btns{
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.thought-btns form button{
+    border: none;
+    outline: none;
+    font-family: inherit;
+    letter-spacing: inherit;
+    border-radius: 0.4rem;
+    cursor: pointer;
+}
+
+.thought-btns a{
+    border-radius: 0.4rem;
+}
+
+/* thought-section end */
+
+
+/* addThought-section start  */
+
+.updateThought-section{
+    background: var(--dark-color);
+    padding: 5rem 0 7rem 0;
+    min-height: 85vh;
+}
+
+.updateThought-form{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2rem;
+}
+
+.updateThought-form input[type="text"],
+.updateThought-form textarea{
+    border: none;
+    outline: none;
+    color: var(--white-color);
+    background: var(--light-dark-color);
+    font-size: 1.8rem;
+    font-weight: 400;
+    padding: 1rem 2rem;
+    border-radius: 0.4rem;
+    font-family: inherit;
+    letter-spacing: inherit;
+}
+
+.updateThought-form textarea{
+    resize: none;
+    height: 30rem;
+    line-height: 1.8;
+}
+
+.updateThought-form input::placeholder,
+.updateThought-form textarea::placeholder{
+    color: var(--white-color);
+}
+
+.updateThought-form input[type="submit"]{
+    border: none;
+    outline: none;
+    align-self: flex-end;
+    border-radius: 0.4rem;
+    font-family: inherit;
+    letter-spacing: inherit;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+
+/* updateThought-section end  */

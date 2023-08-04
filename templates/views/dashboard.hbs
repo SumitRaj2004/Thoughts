@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    {{>navbar}}
+    <section class="dashboard-section">
+        <div class="small-container">
+            <div class="dashboard-top">
+                <h1>Hey, <span>{{username}}</span></h1>
+                <form action="/dashboard" method="GET" class="dashboard-search">
+                    <input type="text" placeholder="Search" name="search">
+                </form>
+            </div>
+            <div class="dashboard-bottom">
+                {{#each thoughts}}
+                    <div class="thought">
+                        <a href="/dashboard/thought/{{this.id}}"`>{{this.title}}</a>
+                    </div>
+                {{/each}}
+            </div>
+            <div class="dashboard-btns">
+                <a href="/dashboard/logout" class="tertiary-btn">Logout</a>
+                <a href="/dashboard/thought/add" class="secondary-btn">Add New</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>{{thought.title}}</title>
+</head>
+<body>
+    {{>navbar}}
+    <section class="thought-section">
+        <div class="small-container">
+            <h1 class="thought-title">{{thought.title}}</h1>
+            <p class="thought-content">{{thought.content}}</p>
+            <div class="thought-btns">
+                <form action="/dashboard/thought/{{thought.id}}?_method=DELETE" method="POST">
+                    <button type="submit" class="tertiary-btn">Delete</button>
+                </form>
+                <a href="/dashboard/thought/update/{{thought.id}}" class="primary-btn">Update</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

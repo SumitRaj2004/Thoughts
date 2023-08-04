@@ -95,8 +95,6 @@ const dashboardController = {
     },
 
     deleteThought : async(req, res) => {
-        console.log("working")
-        console.log(req.user.id)
         const {id} = req.params;
         const thought = await Thought.findOne({_id : id, owner : req.user.id});
         if (thought){

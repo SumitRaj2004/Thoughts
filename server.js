@@ -10,6 +10,7 @@ import authRouter from "./routes/authRoutes.js";
 import dashboardRouter from "./routes/dashboardRoutes.js";
 import passport from "passport";
 import expressSession from "express-session"
+import MongoStore from "connect-mongo";
 import "./config/passport-setup.js";
 import methodOverride from "method-override";
 
@@ -30,6 +31,7 @@ app.use(expressSession({
     resave : false,
     saveUninitialized : false,
     maxAge : 1000*60*60*24*7,    // seven days
+    store : MongoStore.create({mongoUrl : process.env.DATABASE_URL})
 }))
 app.use(passport.initialize())
 app.use(passport.session())

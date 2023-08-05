@@ -17,6 +17,7 @@ html{
 body{
     font-family: 'Urbanist', sans-serif;
     letter-spacing: 1px;
+    overflow-x: hidden;
 }
 
 .container{
@@ -82,8 +83,8 @@ body{
 .navbar-logo{
     font-size: 3rem;
     font-weight: 500;
+    /* color: var(--white-color); */
     color: var(--primary-color);
-    text-transform: lowercase;
     text-decoration: none;
 }
 
@@ -111,6 +112,22 @@ body{
     color: var(--primary-color);
 }
 
+.navbar > .container button{
+    border: none;
+    outline: none;
+    background: none;
+    display: none;
+}
+
+.open-icon{
+    color: var(--white-color);
+    font-size: 3.5rem;
+}
+
+.close-icon{
+    color: var(--white-color);
+    font-size: 4.2rem;
+}
 
 /* navbar section end */
 
@@ -155,6 +172,35 @@ body{
 }
 
 /* home-section end */
+
+
+/* about section start */
+.about-section{
+    background: var(--dark-color);
+    padding: 5rem 0;
+}
+
+.about-section > .small-container > h1{
+    font-size: 5rem;
+    font-weight: 700;
+    color: white;
+}
+
+.about-section > .small-container > h1 span{
+    color: var(--primary-color);
+}
+
+.about-section > .small-container > p{
+    font-size: 1.8rem;
+    line-height: 2;
+    margin-top: 4rem;
+    font-weight: 500;
+    color: white;
+}
+
+
+
+/* about section end */
 
 
 /* msg section start  */
@@ -359,7 +405,7 @@ body{
     color: var(--white-color);
     font-size: 1.8rem;
     margin-top: 4rem;
-    line-height: 2.2;
+    line-height: 2;
 }
 
 .thought-btns{
@@ -438,3 +484,123 @@ body{
 
 
 /* updateThought-section end  */
+
+
+
+
+
+/* media queries */
+
+@media (max-width : 880px){
+    .home-content .home-title{
+        font-size: 6rem;
+    }
+}
+
+@media (max-width: 786px){
+    .msg-content > h1{
+        font-size: 6rem;
+    }
+    .msg-content > .msg-btn{
+        margin-top: 2rem;
+        font-size: 1.8rem;
+        padding: 0.5rem 1.5rem;
+    }
+    .home-content .home-title{
+        font-size: 5rem;
+    }
+    .about-section > .small-container > h1{
+        font-size: 4rem;
+    }
+    .primary-btn{
+        font-size: 1.6rem;
+        padding: 0.6rem 1.8rem;
+    }
+    .thought-title{
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .navbar > .container button{
+        display: block;
+        z-index: 2;
+    }
+    .close-icon {
+        display: none;
+    }
+    .navbar.open button .open-icon{
+        display: none;
+    }
+    .navbar.open button .close-icon{
+        display: block;
+    }
+    .navbar .navbar-items{
+        padding: 2rem 4rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: var(--dark-color);
+        width: 100%;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        /* margin-top: -5rem; */
+        transform: translateX(-100%);
+        z-index: 1;
+        transition: all 0.4s ease;
+    }
+
+    .navbar.open .navbar-items{
+        transform: translate(0);
+    }
+
+    .navbar-items .navbar-item a:link, .navbar-items .navbar-item a:visited{
+        font-size: 3rem;
+    }
+    .about-section > .small-container > p{
+        margin-top: 2rem;
+    }
+    .thought-content{
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 540px){
+    .msg-content > h1{
+        font-size: 5rem;
+    }
+    .home-content .home-title{
+        font-size: 4rem;
+    }
+    .dashboard-top > h1{
+        font-size: 2.5rem;
+    }
+    .dashboard-search input{
+        max-width: 15rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .secondary-btn{
+        font-size: 1.6rem;
+        padding: 0.6rem 1.2rem;
+    }
+    .tertiary-btn{
+        font-size: 1.7rem;
+        padding: 0.7rem 1.2rem;
+    }
+}
+
+@media (max-width : 400px) {
+    .msg-content > h1{
+        font-size: 4rem;
+    }
+    .about-section > .small-container > h1{
+        font-size: 3.5rem;
+    }
+    .thought-title{
+        font-size: 3.5rem;
+    }
+}

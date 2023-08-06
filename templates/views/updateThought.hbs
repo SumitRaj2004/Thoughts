@@ -15,7 +15,23 @@
             <form action="/dashboard/thought/update/{{thought.id}}?_method=PATCH" class="updateThought-form" method="POST">
                 <input type="text" name="title" id="" placeholder="Your Title" value="{{thought.title}}">
                 <textarea name="content" placeholder="Your Thought">{{thought.content}}</textarea>
-                <input type="submit" value="Update" class="primary-btn">
+                <div class="updateThoughtForm-bottom">
+                    {{#if publicScope}}
+                    {{!-- if the s scope if public --}}
+                        <select name="scope" class="scope">
+                            <option value="public" selected>Public</option>
+                            <option value="private">Private</option>
+                        </select>
+
+                        {{else}}
+                        {{!-- if the scope if private --}}
+                        <select name="scope" class="scope">
+                        <option value="private" selected>Private</option>
+                        <option value="public">Public</option>
+                    </select>
+                    {{/if}}
+                    <input type="submit" value="Update" class="primary-btn">
+                </div>
             </form>
         </div>
     </section>

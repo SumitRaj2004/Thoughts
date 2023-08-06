@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url';
 import mainRouter from "./routes/mainRoutes.js";
 import authRouter from "./routes/authRoutes.js";
 import dashboardRouter from "./routes/dashboardRoutes.js";
+import thoughtsRouter from "./routes/thoughtsRoutes.js";
 import passport from "passport";
 import expressSession from "express-session"
 import MongoStore from "connect-mongo";
@@ -39,6 +40,7 @@ app.use(methodOverride("_method"));
 
 // routers
 app.use("/", mainRouter);
+app.use("/thoughts", thoughtsRouter);
 app.use("/auth", authRouter);
 app.use("/dashboard", dashboardRouter);
 app.all("*", (req, res) => {

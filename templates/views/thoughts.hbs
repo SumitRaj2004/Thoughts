@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/script.js" defer></script>
+    <title>Thoughts</title>
+</head>
+<body>
+    {{>navbar}}
+    <section class="thoughts-section">
+        <div class="container">
+            <form action="/thoughts" method="GET" class="thoughts-search">
+                <input type="text" placeholder="Search" name="search">
+            </form>
+            <div class="thoughts">
+                {{#each thoughts}}
+                    <div class="thought">
+                            <a href="/thoughts/{{this.id}}" class="thought-title">{{this.title}}</a>
+                            <p class="thought-owner">by - 
+                                <span>{{this.ownerUsername}}</span>
+                            </p>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -12,7 +12,17 @@
     {{>navbar}}
     <section class="thought-section">
         <div class="small-container">
+            <p class="thought-scope">{{thought.scope}}</p>
             <h1 class="thought-title">{{thought.title}}</h1>
+            <div class="thought-author">
+                <div class="thought-author-img">
+                    <img src={{picture}} alt="">
+                </div>
+                <div class="thought-author-details">
+                    <h1>{{thought.ownerUsername}}</h1>
+                    <p class="thought-date">{{thought.updatedAt}}</p>
+                </div>
+            </div>
             <p class="thought-content">{{thought.content}}</p>
             <div class="thought-btns">
                 <form action="/dashboard/thought/{{thought.id}}?_method=DELETE" method="POST">

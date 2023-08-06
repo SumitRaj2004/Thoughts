@@ -15,7 +15,13 @@
             <form action="/dashboard/thought/add" class="addThought-form" method="POST">
                 <input type="text" name="title" id="" placeholder="Your Title" value="">
                 <textarea name="content" placeholder="Your Thought"></textarea>
-                <input type="submit" value="Add" class="primary-btn">
+                <div class="addThoughtForm-bottom">
+                    <select name="scope" class="scope">
+                        <option value="private">Private</option>
+                        <option value="public">Public</option>
+                    </select>
+                    <input type="submit" value="Add" class="primary-btn">
+                </div>
             </form>
         </div>
     </section>

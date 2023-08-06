@@ -1,6 +1,4 @@
-import { Query } from "mongoose";
 import Thought from "../models/thoughtModel.js";
-import { query } from "express";
 
 const dashboardController = {
     renderDashboard : async(req, res) => {
@@ -10,10 +8,9 @@ const dashboardController = {
         if (search){
             queryObject.title = {$regex : search.trim(), $options : "i"}
         }    
-        
         const thoughts = await Thought.find(queryObject);
         res.render("dashboard", {
-            username : req.user.username.split(" ")[0],
+            name : req.user.name.split(" ")[0],
             thoughts : thoughts
         })
     },
@@ -23,12 +20,14 @@ const dashboardController = {
     },
 
     addThought : async(req, res) => {
-        const {title, content} = req.body;
+        const {title, content, scope} = req.body;
         if (title && content){
             const thought  = new Thought({
                 title : title,
                 content : content,
-                owner : req.user.id
+                scope : scope,
+                owner : req.user.id,
+                ownerUsername : req.user.email.split("@")[0]
             })
             await thought.save();
             res.redirect("/dashboard")
@@ -47,7 +46,8 @@ const dashboardController = {
         const thought = await Thought.findOne({_id : id, owner : req.user.id});
         if (thought){
             res.render("updateThought", {
-                thought : thought
+                thought : thought,
+                publicScope : thought.scope === "public"
             })
         }else{
             res.render("msg", {
@@ -60,13 +60,14 @@ const dashboardController = {
     },
 
     updateThought : async(req, res) => {
-        const {title, content} = req.body;
+        const {title, content, scope} = req.body;
         const {id} = req.params;
         const thought = await Thought.findOne({_id : id, owner : req.user.id});
         if (thought){
             await Thought.findByIdAndUpdate(id, {
                 title : title,
-                content : content
+                content : content,
+                scope : scope
             });
             res.redirect("/dashboard")
         }else{
@@ -83,7 +84,7 @@ const dashboardController = {
         const {id} = req.params;
         const thought = await Thought.findOne({_id : id, owner : req.user.id});
         if (thought){
-            res.render("thought", {thought});
+            res.render("thought", {thought, picture : req.user.picture});
         }else{
             res.render("msg", {
                 title : "Error",

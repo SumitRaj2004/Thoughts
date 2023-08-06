@@ -9,12 +9,20 @@ const thoughtSchema = new mongoose.Schema({
         type : String,
         required : true
     },
+    scope : {
+        type : String,
+        required : true
+    },
     owner : {
         type : mongoose.Schema.Types.ObjectId,
         ref : "User",
         required : true
+    },
+    ownerUsername : {
+        type : String,
+        required : true
     }
-})
+}, {timestamps : true})
 
 const Thought = mongoose.model("Thought", thoughtSchema);
 

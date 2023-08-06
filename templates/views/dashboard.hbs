@@ -13,7 +13,7 @@
     <section class="dashboard-section">
         <div class="small-container">
             <div class="dashboard-top">
-                <h1>Hey, <span>{{username}}</span></h1>
+                <h1>Hey, <span>{{name}}</span></h1>
                 <form action="/dashboard" method="GET" class="dashboard-search">
                     <input type="text" placeholder="Search" name="search">
                 </form>
@@ -22,6 +22,7 @@
                 {{#each thoughts}}
                     <div class="thought">
                         <a href="/dashboard/thought/{{this.id}}" class="thought-title">{{this.title}}</a>
+                        <p class="thought-scope">{{this.scope}}</p>
                     </div>
                 {{/each}}
             </div>

@@ -263,14 +263,13 @@ body{
 }
 
 .publicThought-section .publicThought-title{
-    margin-top: -0.5rem;
     color: var(--white-color);
     font-size: 5rem;
-    line-height: 1.5;
+    line-height: 1;
 }
 
 .publicThought-section .publicThought-author{
-    margin-top: 1rem;
+    margin-top: 2.5rem;
     display: flex;
     align-items: center;
     gap : 1rem;
@@ -533,14 +532,14 @@ body{
 }
 
 .thought-section .thought-title{
-    margin-top: -0.5rem;
+    margin-top: 1rem;
     color: var(--white-color);
     font-size: 5rem;
-    line-height: 1.5;
+    line-height: 1;
 }
 
 .thought-section .thought-author{
-    margin-top: 1rem;
+    margin-top: 2.5rem;
     display: flex;
     align-items: center;
     gap : 1rem;

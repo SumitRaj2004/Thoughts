@@ -21,16 +21,25 @@ const dashboardController = {
 
     addThought : async(req, res) => {
         const {title, content, scope} = req.body;
-        if (title && content){
-            const thought  = new Thought({
-                title : title,
-                content : content,
-                scope : scope,
-                owner : req.user.id,
-                ownerUsername : req.user.email.split("@")[0]
-            })
-            await thought.save();
-            res.redirect("/dashboard")
+        if (title && content && scope){
+            try{
+                const thought  = new Thought({
+                    title : title,
+                    content : content,
+                    scope : scope,
+                    owner : req.user.id,
+                    ownerUsername : req.user.email.split("@")[0]
+                })
+                await thought.save();
+                res.redirect("/dashboard")
+            }catch(err){
+                res.render("msg", {
+                    title : "Error",
+                    msg : "Something went wrong",
+                    link : "/dashboard",
+                    linkTitle : "Dashboard"
+                })
+            }
         }else{
             res.render("msg", {
                 title : "Required",
@@ -43,13 +52,13 @@ const dashboardController = {
 
     renderUpdateThought : async(req, res) => {
         const {id} = req.params;
-        const thought = await Thought.findOne({_id : id, owner : req.user.id});
-        if (thought){
+        try{
+            const thought = await Thought.findOne({_id : id, owner : req.user.id});
             res.render("updateThought", {
                 thought : thought,
                 publicScope : thought.scope === "public"
             })
-        }else{
+        }catch(err){
             res.render("msg", {
                 title : "Error",
                 msg : "Something went wrong",
@@ -62,15 +71,15 @@ const dashboardController = {
     updateThought : async(req, res) => {
         const {title, content, scope} = req.body;
         const {id} = req.params;
-        const thought = await Thought.findOne({_id : id, owner : req.user.id});
-        if (thought){
+        try{
+            const thought = await Thought.findOne({_id : id, owner : req.user.id});
             await Thought.findByIdAndUpdate(id, {
                 title : title,
                 content : content,
                 scope : scope
             });
             res.redirect("/dashboard")
-        }else{
+        }catch(err){
             res.render("msg", {
                 title : "Error",
                 msg : "Something went wrong",
@@ -82,10 +91,10 @@ const dashboardController = {
 
     renderThought : async(req, res) => {
         const {id} = req.params;
-        const thought = await Thought.findOne({_id : id, owner : req.user.id});
-        if (thought){
-            res.render("thought", {thought, picture : req.user.picture});
-        }else{
+        try{
+            const thought = await Thought.find({_id : id, owner : req.user.id});
+            res.render("thought", {thought : thought[0], picture : req.user.picture});
+        }catch(err){
             res.render("msg", {
                 title : "Error",
                 msg : "Something went wrong",
@@ -97,11 +106,11 @@ const dashboardController = {
 
     deleteThought : async(req, res) => {
         const {id} = req.params;
-        const thought = await Thought.findOne({_id : id, owner : req.user.id});
-        if (thought){
+        try{
+            const thought = await Thought.findOne({_id : id, owner : req.user.id});
             await Thought.findByIdAndDelete(thought._id);
             res.redirect("/dashboard")
-        }else{
+        }catch(err){
             res.render("msg", {
                 title : "Error",
                 msg : "Something went wrong",
@@ -109,7 +118,6 @@ const dashboardController = {
                 linkTitle : "Dashboard"
             })
         }
-        
     },
 
     logout : async(req, res) => {

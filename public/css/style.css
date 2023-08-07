@@ -184,6 +184,7 @@ body{
     padding: 4rem 0 7rem 0;
     /* border: 1px solid white; */
     min-height: 85vh;
+    width: 100vw;
 }
 
 .thoughts-section .thoughts-search{

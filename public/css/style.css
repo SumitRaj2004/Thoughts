@@ -227,16 +227,12 @@ body{
 
 .thoughts-section .thoughts .thought .thought-title{
     font-size: 1.8rem;
-    color: var(--white-color);
+    color: var(--primary-color);
     font-weight: 400;
     text-decoration: none;
-    text-transform: lowercase;
     transition: all 0.2s ease;
 }
 
-.thoughts-section .thoughts .thought .thought-title:hover{
-    color: var(--primary-color);
-}
 
 .thoughts-section .thoughts .thought .thought-owner{
     color: var(--light-white-color);
@@ -386,15 +382,10 @@ body{
 
 .dashboard-bottom > .thought > .thought-title{
     font-size: 1.8rem;
-    color: var(--white-color);
+    color: var(--primary-color);
     font-weight: 400;
     text-decoration: none;
-    text-transform: lowercase;
     transition: all 0.2s ease;
-}
-
-.dashboard-bottom > .thought > .thought-title:hover{
-    color: var(--primary-color);
 }
 
 .dashboard-bottom > .thought > .thought-scope{

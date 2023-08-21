@@ -27,8 +27,7 @@ const dashboardController = {
                     title : title,
                     content : content,
                     scope : scope,
-                    owner : req.user.id,
-                    ownerUsername : req.user.email.split("@")[0]
+                    owner : req.user.id
                 })
                 await thought.save();
                 res.redirect("/dashboard")
@@ -92,8 +91,8 @@ const dashboardController = {
     renderThought : async(req, res) => {
         const {id} = req.params;
         try{
-            const thought = await Thought.find({_id : id, owner : req.user.id});
-            res.render("thought", {thought : thought[0], picture : req.user.picture});
+            const thought = await Thought.findOne({_id : id, owner : req.user.id}).populate("owner");
+            res.render("thought", {thought : thought});
         }catch(err){
             res.render("msg", {
                 title : "Error",

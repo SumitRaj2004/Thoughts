@@ -9,21 +9,15 @@ const thoughtsController = {
         if (search){
             queryObject.title = {$regex : search.trim(), $options : "i"}
         }    
-        const thoughts = await Thought.find(queryObject).sort({updatedAt : -1})
-        res.render("thoughts", {
-            thoughts : thoughts
-        })
+        const thoughts = await Thought.find(queryObject).populate("owner").sort({updatedAt : -1});
+        res.render("thoughts", {thoughts})
     },
 
     renderThought : async(req, res) => {
         const {id} = req.params;
         try{
-            const thought = await Thought.findOne({_id : id});
-            const user = await User.findOne({_id : thought.owner});
-            res.render("publicThought", {
-                thought,
-                picture : user.picture
-            })
+            const thought = await Thought.findOne({_id : id}).populate("owner");
+            res.render("publicThought", {thought : thought})
         }catch(err){
             res.render("msg", {
                 title : "Error",

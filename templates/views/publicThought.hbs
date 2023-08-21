@@ -15,10 +15,10 @@
             <h1 class="publicThought-title">{{thought.title}}</h1>
             <div class="publicThought-author">
                 <div class="publicThought-author-img">
-                    <img src={{picture}} alt="">
+                    <img src={{thought.owner.picture}} alt="">
                 </div>
                 <div class="publicThought-author-details">
-                    <h1>{{thought.ownerUsername}}</h1>
+                    <h1>{{thought.owner.username}}</h1>
                     <p class="publicThought-date">{{thought.updatedAt}}</p>
                 </div>
             </div>
